@@ -1,0 +1,23 @@
+# .gitignore
+# Data directories
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Jupyter checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+ENV/
+
+# OS files
+.DS_Store

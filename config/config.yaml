@@ -1,0 +1,37 @@
+# config/config.yaml
+
+paths:
+  raw_data: data/raw/jane-street-real-time-market-data-forecasting
+  processed_data: data/processed
+  models: models
+
+data:
+  target_column: responder_6
+  time_id_column: time_id
+  date_id_column: date_id
+  symbol_id_column: symbol_id
+  weight_column: weight
+  feature_pattern: feature_
+  responder_pattern: responder_
+
+features:
+  lag_windows: [1, 2, 3, 5]
+  rolling_windows: [5, 10, 20]
+  technical_features:
+    - moving_average
+    - volatility
+    - momentum
+
+model:
+  validation:
+    test_size: 0.2
+    n_splits: 5
+  training:
+    batch_size: 1024
+    learning_rate: 0.001
+    max_epochs: 100
+    early_stopping_patience: 10
+
+inference:
+  response_timeout: 60  # seconds
+  batch_size: 1000
